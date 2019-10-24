@@ -11,4 +11,6 @@ func _input_event(viewport, event, shape_idx):
 
 func _process(delta):
 	if Input.is_mouse_button_pressed(BUTTON_LEFT) and can_drag:
+		#Use something like this to duplicate
+		#load(X).instance()
 		position = get_global_mouse_position()
