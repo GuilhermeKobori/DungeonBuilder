@@ -8,9 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Resource",
+"class": "HeroStats",
+"language": "GDScript",
+"path": "res://Heros/HeroStats.gd"
+}, {
+"base": "Resource",
+"class": "MonsterStats",
+"language": "GDScript",
+"path": "res://Monsters/MonsterStats.gd"
+} ]
 _global_script_class_icons={
-
+"HeroStats": "",
+"MonsterStats": ""
 }
 
 [application]
