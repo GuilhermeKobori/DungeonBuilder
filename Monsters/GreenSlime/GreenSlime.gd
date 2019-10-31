@@ -25,7 +25,7 @@ func _process(delta):
 		#is 32x32 so we need to divide the position values to map them
 		#to the corresponding positions of the tilemap
 		print(self.position)
-		var current_tile_index = get_node("../../Scene/TileMap").get_cell(self.position.x/32 + 1, self.position.y/32)
+		var current_tile_index = get_node("../../Scene/TileMap").get_cell(ceil(self.position.x/32), ceil(self.position.y/32 - 1))
 		#if the slime is dropped at the menu area we delete it
 		if self.position.x < 167:
 			get_parent().remove_child(self)
