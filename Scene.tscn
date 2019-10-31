@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Tiles.tres" type="TileSet" id=1]
 
-[node name="Node2D" type="Node2D"]
+[node name="Scene" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 1.8, 1.8 )
