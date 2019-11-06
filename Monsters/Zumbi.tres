@@ -4,12 +4,3 @@
 
 [resource]
 script = ExtResource( 1 )
-job_name = "Zumbi"
-description = "Quando relógio bate a uma, todos os zumbis saem da tumba;"
-type = "Melee"
-max_health = 30
-cost = 20
-attack = 5
-atk_speed = 1.0
-speed = 0.5
-reach = 1

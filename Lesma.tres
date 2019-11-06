@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+
+[resource]
+script = SubResource( 1 )
+job_name = "job"
+description = ""
+type = ""
+max_health = 0
+cost = 0
+attack = 0
+atk_speed = 0.0
+speed = 0.0
+reach = 0

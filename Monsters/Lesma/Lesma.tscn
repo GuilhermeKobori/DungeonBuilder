@@ -36,6 +36,8 @@ scale = Vector2( 0.99932, 0.992123 )
 curve = SubResource( 1 )
 
 [node name="follow" type="PathFollow2D" parent="lesma"]
+position = Vector2( 0.995972, 0.868744 )
+rotation = -3.13846
 
 [node name="Corpo" type="KinematicBody2D" parent="lesma/follow"]
 script = ExtResource( 1 )
