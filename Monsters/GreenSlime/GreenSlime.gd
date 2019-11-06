@@ -24,16 +24,13 @@ func _process(delta):
 		#Tilemaps use indexes based on the resolution in this case it
 		#is 32x32 so we need to divide the position values to map them
 		#to the corresponding positions of the tilemap
-		print(self.position)
-		var current_tile_index = get_node("../../Scene/TileMap").get_cell(ceil(self.position.x/32), ceil(self.position.y/32 - 1))
+		var current_tile_index = get_node("../../Scene/TileMap").get_cell(ceil(self.position.x/30), ceil(self.position.y/30 - 1))
 		#if the slime is dropped at the menu area we delete it
 		if self.position.x < 167:
 			get_parent().remove_child(self)
 		#if the slime is not dropped in a tile we delete it
 		elif current_tile_index == -1:
 			get_parent().remove_child(self)
-			print(current_tile_index)
 		#if the slime is droped in an invalid tile we delete it
 		elif !valid_tileset.has(current_tile_index):
 			get_parent().remove_child(self)
-			print(current_tile_index)
