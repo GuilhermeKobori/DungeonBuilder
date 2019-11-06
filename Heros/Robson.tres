@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Heros/HeroStats.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+job_name = "Robson"
+description = "Espadachim tosco"
+type = "Melee"
+max_health = 20
+attack = 5
+atk_speed = 1.0
+speed = 0.5
+reach = 1
+drop = 5

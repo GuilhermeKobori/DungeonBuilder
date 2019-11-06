@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Monsters/MonsterStats.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+job_name = "Lesma"
+description = "Lesma malvada cabulosaString"
+type = "Melee"
+max_health = 20
+cost = 5
+attack = 4
+atk_speed = 2.0
+speed = 2.0
+reach = 1
