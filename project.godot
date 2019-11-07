@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="DungeonBuilder"
-run/main_scene="res://Monsters/MonsterPickupTestScene.tscn"
+run/main_scene="res://Scene.tscn"
 config/icon="res://icon.png"
 
 [display]
