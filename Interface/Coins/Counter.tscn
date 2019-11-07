@@ -4,6 +4,8 @@
 [ext_resource path="res://Interface/gold_coins.png" type="Texture" id=2]
 [ext_resource path="res://Interface/theme/default_theme.tres" type="Theme" id=3]
 
+
+
 [node name="Counter" type="NinePatchRect"]
 anchor_left = 1.0
 anchor_right = 1.0

@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Interface/Monsters Menu/background.png" type="Texture" id=1]
+[ext_resource path="res://Interface/Monsters Menu/item_menu.tscn" type="PackedScene" id=2]
+
+[node name="Store" type="NinePatchRect"]
+anchor_bottom = 1.0
+margin_right = 140.0
+margin_bottom = -80.0
+rect_min_size = Vector2( 130, 400 )
+texture = ExtResource( 1 )
+region_rect = Rect2( -0.684219, -0.631582, 98.9474, 97.8947 )
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -70.0
+margin_top = 15.0
+margin_right = 70.0
+margin_bottom = 140.0
+columns = 2
+
+[node name="item" parent="GridContainer" instance=ExtResource( 2 )]
+margin_right = 65.0
+margin_bottom = 65.0
+
+[node name="item2" parent="GridContainer" instance=ExtResource( 2 )]
+margin_left = 69.0
+margin_right = 134.0
+margin_bottom = 65.0
+
+[node name="item3" parent="GridContainer" instance=ExtResource( 2 )]
+margin_top = 69.0
+margin_right = 65.0
+margin_bottom = 134.0
+
+[node name="item6" parent="GridContainer" instance=ExtResource( 2 )]
+margin_left = 69.0
+margin_top = 69.0
+margin_right = 134.0
+margin_bottom = 134.0
+
+[node name="item4" parent="GridContainer" instance=ExtResource( 2 )]
+margin_top = 138.0
+margin_right = 65.0
+margin_bottom = 203.0
+
+[node name="item5" parent="GridContainer" instance=ExtResource( 2 )]
+margin_left = 69.0
+margin_top = 138.0
+margin_right = 134.0
+margin_bottom = 203.0

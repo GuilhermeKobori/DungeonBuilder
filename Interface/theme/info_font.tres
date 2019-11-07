@@ -3,7 +3,8 @@
 [ext_resource path="res://Interface/theme/I-pixel-u.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 19
+size = 32
 use_mipmaps = true
 use_filter = true
+extra_spacing_top = -8
 font_data = ExtResource( 1 )
