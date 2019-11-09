@@ -4,3 +4,12 @@
 
 [resource]
 script = ExtResource( 1 )
+job_name = "job"
+description = null
+type = null
+max_health = null
+cost = null
+attack = null
+atk_speed = null
+speed = null
+reach = null
