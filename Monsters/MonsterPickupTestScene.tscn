@@ -2,7 +2,8 @@
 
 [ext_resource path="res://WhiteMenu.png" type="Texture" id=1]
 [ext_resource path="res://Monsters/GreenSlime/GreenSlimeStatic.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Levels/Level1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Screens/Level1.tscn" type="PackedScene" id=3]
+
 
 [node name="MonsterPickupTestScene" type="Node2D"]
 
