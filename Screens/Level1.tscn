@@ -24,13 +24,6 @@ tile_data = PoolIntArray( 65557, 0, 0, 65558, 0, 1, 65559, 0, 4, 131093, 0, 6553
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource( 1 )
 
-[node name="GameOver" type="Label" parent="."]
-margin_left = 343.106
-margin_top = 146.217
-margin_right = 432.106
-margin_bottom = 160.217
-text = "Perdeu troxa"
-
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 647.059, 75.8244 )
 scale = Vector2( 0.157, 0.157 )
