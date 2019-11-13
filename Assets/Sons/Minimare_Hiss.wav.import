@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Minimare_Hiss.wav-f7b78cc552b64ab4fc7ad24125efc04f.sample"
+
+[deps]
+
+source_file="res://Assets/Sons/Minimare_Hiss.wav"
+dest_files=[ "res://.import/Minimare_Hiss.wav-f7b78cc552b64ab4fc7ad24125efc04f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

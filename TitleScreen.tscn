@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://Assets/overlay.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Level1Button.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Level2Button.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Sons/Track 1 - Cubiculacetophobie.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Sons/Minimare_Hiss.wav" type="AudioStream" id=6]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Assets/Montserrat-Black.ttf"
@@ -66,3 +67,9 @@ texture_normal = ExtResource( 4 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
