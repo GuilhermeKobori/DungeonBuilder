@@ -7,7 +7,7 @@ func _ready():
 func on_mainmenu_button_pressed():
 	global.current_level = 0
 	get_tree().change_scene("res://TitleScreen.tscn")
-	
+
 func on_retry_button_pressed():
 	if global.current_level == 1:
 			get_tree().change_scene("res://Screens/Level1.tscn")

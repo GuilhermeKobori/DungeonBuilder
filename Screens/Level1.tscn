@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Screens/Level1.gd" type="Script" id=1]
 [ext_resource path="res://Tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://Assets/gold_pile.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sons/Track 3 - Carpophobie.wav" type="AudioStream" id=4]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -28,3 +29,7 @@ curve = SubResource( 1 )
 position = Vector2( 647.059, 75.8244 )
 scale = Vector2( 0.157, 0.157 )
 texture = ExtResource( 3 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 349.859, 232.067 )
+stream = ExtResource( 4 )

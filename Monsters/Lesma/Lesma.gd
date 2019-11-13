@@ -33,7 +33,7 @@ func _physics_process(delta):
 		get_node("Sprite").set_flip_h(true)
 	else:
 		get_parent().set_unit_offset(new_offset)
-	
+
 
 func _on_Area2D_body_entered(body):
 	var other_attack = body.get('attack')
