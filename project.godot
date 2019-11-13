@@ -27,14 +27,20 @@ _global_script_class_icons={
 [application]
 
 config/name="DungeonBuilder"
-run/main_scene="res://Monsters/MonsterPickupTestScene.tscn"
+run/main_scene="res://TitleScreen.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+global="*res://global.gd"
 
 [display]
 
 window/size/width=720
 window/size/height=480
+window/size/resizable=false
 
 [rendering]
 
+environment/default_clear_color=Color( 0.109804, 0.109804, 0.109804, 1 )
 environment/default_environment="res://default_env.tres"

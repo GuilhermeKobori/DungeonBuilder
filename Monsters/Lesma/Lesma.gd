@@ -8,13 +8,12 @@ extends KinematicBody2D
 var monster_name = 'Lesma'
 var life = 10
 var attack = 2
-var speed = 0.3
+var speed = 3
 var sent = 1
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(name)
 	set_physics_process(true)
 
 
@@ -35,3 +34,19 @@ func _physics_process(delta):
 	else:
 		get_parent().set_unit_offset(new_offset)
 	
+
+func _on_Area2D_body_entered(body):
+	var other_attack = body.get('attack')
+	if other_attack != null:
+		life -= other_attack
+	if life <= 0:
+		var loaded = load("res://Assets/Inimigos/slimeDead.png")
+
+		get_node("anim").stop()
+		get_node("Sprite").set_texture(loaded)
+		get_node("Sprite").set_offset(Vector2(0, 8))
+		get_node("Area2D").queue_free()
+		set_physics_process(false)
+		yield(get_tree().create_timer(1.0), "timeout")
+		get_parent().queue_free()
+

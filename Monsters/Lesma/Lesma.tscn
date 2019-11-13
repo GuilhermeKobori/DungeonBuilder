@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Monsters/Lesma/Lesma.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Inimigos/slimeWalk1.png" type="Texture" id=2]
@@ -28,6 +28,9 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 7.44595, 1.33626 )
 
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 26.2334, 15.2418 )
+
 [node name="Lesma" type="Node2D"]
 position = Vector2( 160, 0 )
 scale = Vector2( 0.99932, 0.992123 )
@@ -52,3 +55,9 @@ anims/Rastejar = SubResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lesma/follow/Corpo"]
 scale = Vector2( -3.42806, -10.9338 )
 shape = SubResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="lesma/follow/Corpo"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lesma/follow/Corpo/Area2D"]
+shape = SubResource( 4 )
+[connection signal="body_entered" from="lesma/follow/Corpo/Area2D" to="lesma/follow/Corpo" method="_on_Area2D_body_entered"]
