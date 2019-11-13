@@ -1,6 +1,7 @@
 extends Node2D
 
 var greenSlimeScn = load("res://Monsters/GreenSlime/GreenSlime.tscn")
+var uniqueClick = true
 
 func _ready():
 	#start the groovin' animation
@@ -16,6 +17,10 @@ func _ready():
 
 func _process(delta):
 	#when the icon is clicked creates a new dragable clone
-	if Input.is_mouse_button_pressed(BUTTON_LEFT):
+	if Input.is_mouse_button_pressed(BUTTON_LEFT) and uniqueClick:
 		var greenSlime = greenSlimeScn.instance()
 		add_child(greenSlime)
+		uniqueClick = false
+	elif !Input.is_mouse_button_pressed(BUTTON_LEFT):
+		uniqueClick = true
+		
