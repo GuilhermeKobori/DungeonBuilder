@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MitheralKnight.png-09c0952d87d89f398772c49c76df24d8.stex"
+path="res://.import/BronzeKnight.png-e21bb553a06de00a815ccdae045f8ebc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Heros/Knights/MitheralKnight.png"
-dest_files=[ "res://.import/MitheralKnight.png-09c0952d87d89f398772c49c76df24d8.stex" ]
+source_file="res://Heros/Knights/BronzeKnight/BronzeKnight.png"
+dest_files=[ "res://.import/BronzeKnight.png-e21bb553a06de00a815ccdae045f8ebc.stex" ]
 
 [params]
 
