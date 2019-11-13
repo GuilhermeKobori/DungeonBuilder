@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Interface/Monsters Menu/Monsters Infos/shade_bg.png" type="Texture" id=1]
+[ext_resource path="res://Interface/label_bg.png" type="Texture" id=2]
+[ext_resource path="res://Interface/theme/close_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Interface/Monsters Menu/zumbi.png" type="Texture" id=4]
+[ext_resource path="res://Interface/theme/info_page_font.tres" type="DynamicFont" id=5]
+
+[node name="Monster Infos" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Background" type="NinePatchRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1760.0
+texture = ExtResource( 1 )
+region_rect = Rect2( 11.7086, 11.7086, 1254.27, 681.874 )
+patch_margin_left = 1242
+patch_margin_top = 30
+patch_margin_right = 1238
+patch_margin_bottom = 27
+
+[node name="Infos" type="NinePatchRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -247.0
+margin_top = -166.0
+margin_right = 247.0
+margin_bottom = 166.0
+texture = ExtResource( 2 )
+region_rect = Rect2( -0.0526352, 0.18679, 121.049, 43.8438 )
+patch_margin_left = 9
+patch_margin_top = 10
+patch_margin_right = 8
+patch_margin_bottom = 9
+
+[node name="Close" type="Label" parent="Infos"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -30.0
+margin_top = 10.0
+margin_right = -21.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 3 )
+text = "X"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Infos"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -103.5
+margin_right = 425.0
+margin_bottom = 103.5
+alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Infos/HBoxContainer"]
+margin_right = 140.0
+margin_bottom = 207.0
+rect_min_size = Vector2( 140, 0 )
+
+[node name="Control" type="Control" parent="Infos/HBoxContainer/VBoxContainer"]
+margin_right = 140.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 120, 120 )
+
+[node name="Icon" type="TextureRect" parent="Infos/HBoxContainer/VBoxContainer/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -34.0
+margin_top = -47.0
+margin_right = 34.0
+margin_bottom = 47.0
+rect_min_size = Vector2( 68, 94 )
+texture = ExtResource( 4 )
+stretch_mode = 1
+
+[node name="Name" type="Label" parent="Infos/HBoxContainer/VBoxContainer"]
+margin_top = 124.0
+margin_right = 140.0
+margin_bottom = 151.0
+custom_fonts/font = ExtResource( 5 )
+text = "Zumbi"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Label2" type="Label" parent="Infos/HBoxContainer"]
+margin_left = 144.0
+margin_right = 441.0
+margin_bottom = 207.0
+custom_fonts/font = ExtResource( 5 )
+text = "Custo: 20 $
+Vida: 30
+Velocidade: 0.5
+Tipo: Melee
+Alcance: 1
+Velocidade de Ataque: 1
+Dano: 5"

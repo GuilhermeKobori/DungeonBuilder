@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gold_coins.png-cbfa3a204c23d46729de9a931c6fb8c7.stex"
+path="res://.import/shade_bg.png-bfb1b20be8876a25cfad96d1bb3b3b1d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Interface/gold_coins.png"
-dest_files=[ "res://.import/gold_coins.png-cbfa3a204c23d46729de9a931c6fb8c7.stex" ]
+source_file="res://Interface/Monsters Menu/Monsters Infos/shade_bg.png"
+dest_files=[ "res://.import/shade_bg.png-bfb1b20be8876a25cfad96d1bb3b3b1d.stex" ]
 
 [params]
 
