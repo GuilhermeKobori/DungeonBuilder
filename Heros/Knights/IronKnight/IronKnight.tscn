@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Heros/Knights/IronKnight/IronKnight.png" type="Texture" id=1]
+[ext_resource path="res://Heros/Knights/IronKnight/warrior spritesheet calciumtrice.png" type="Texture" id=1]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Attackin'"
@@ -80,14 +80,14 @@ tracks/0/keys = {
 "values": [ 20, 21, 22, 23, 24, 25, 26, 27, 28, 29 ]
 }
 
-[node name="GoldenKnight" type="Node2D"]
+[node name="IronKnight" type="Node2D"]
 position = Vector2( 20, 20 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
-vframes = 5
+vframes = 10
 hframes = 10
-frame = 22
+frame = 20
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Attackin' = SubResource( 1 )
