@@ -22,7 +22,6 @@ patch_margin_right = 1238
 patch_margin_bottom = 27
 
 [node name="Infos" type="NinePatchRect" parent="."]
-editor/display_folded = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -71,11 +70,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -50.0
-margin_top = -50.0
-margin_right = 50.0
-margin_bottom = 50.0
-rect_min_size = Vector2( 100, 100 )
+margin_left = -34.0
+margin_top = -47.0
+margin_right = 34.0
+margin_bottom = 47.0
+rect_min_size = Vector2( 68, 94 )
 texture = ExtResource( 4 )
 stretch_mode = 1
 

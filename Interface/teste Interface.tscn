@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://WhiteMenu.png" type="Texture" id=1]
 [ext_resource path="res://Monsters/GreenSlime/GreenSlimeStatic.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scene.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Interface/Interface.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Interface/Monsters Menu/Monsters Infos/Monster Infos.tscn" type="PackedScene" id=5]
 
 [node name="MonsterPickupTestScene" type="Node2D"]
 
@@ -24,5 +23,3 @@ z_index = -2
 [node name="Interface" parent="." instance=ExtResource( 4 )]
 margin_right = 720.0
 margin_bottom = 480.0
-
-[node name="Control" parent="Interface" instance=ExtResource( 5 )]

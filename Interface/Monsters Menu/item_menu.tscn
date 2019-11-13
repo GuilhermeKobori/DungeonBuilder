@@ -6,7 +6,7 @@
 [ext_resource path="res://Interface/theme/monster_name.tres" type="Theme" id=4]
 [ext_resource path="res://Interface/Monsters Menu/zumbi.png" type="Texture" id=5]
 
-[node name="item" type="Control"]
+[node name="item_menu" type="Control"]
 margin_right = 60.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 65, 65 )
