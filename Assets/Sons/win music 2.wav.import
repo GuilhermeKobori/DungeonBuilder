@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/game-over-2.wav-2f157ca98c366839f8e30ecfff68b11b.sample"
+path="res://.import/win music 2.wav-55dcb089a3ad52cdd7edab122dc8b135.sample"
 
 [deps]
 
-source_file="res://Assets/Sons/game-over-2.wav"
-dest_files=[ "res://.import/game-over-2.wav-2f157ca98c366839f8e30ecfff68b11b.sample" ]
+source_file="res://Assets/Sons/win music 2.wav"
+dest_files=[ "res://.import/win music 2.wav-55dcb089a3ad52cdd7edab122dc8b135.sample" ]
 
 [params]
 
