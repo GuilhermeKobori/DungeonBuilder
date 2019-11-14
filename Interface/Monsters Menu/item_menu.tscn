@@ -1,18 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Interface/Monsters Menu/item_menu.gd" type="Script" id=1]
-[ext_resource path="res://Monsters/GreenSlime/GreenSlimeStatic.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Interface/theme/info_theme.tres" type="Theme" id=3]
-[ext_resource path="res://Interface/theme/monster_name.tres" type="Theme" id=4]
-[ext_resource path="res://Interface/Monsters Menu/zumbi.png" type="Texture" id=5]
+[ext_resource path="res://Interface/theme/info_theme.tres" type="Theme" id=2]
+[ext_resource path="res://Interface/theme/monster_name.tres" type="Theme" id=3]
+[ext_resource path="res://Interface/Monsters Menu/zumbi.png" type="Texture" id=4]
 
 [node name="item_menu" type="Control"]
 margin_right = 60.0
 margin_bottom = 60.0
-rect_min_size = Vector2( 65, 65 )
+rect_min_size = Vector2( 70, 70 )
 script = ExtResource( 1 )
-
-[node name="GreenSlimeStatic" parent="." instance=ExtResource( 2 )]
 
 [node name="Button" type="Button" parent="."]
 anchor_left = 1.0
@@ -21,7 +18,7 @@ margin_left = -21.8574
 margin_right = 14.1426
 margin_bottom = 38.0
 rect_scale = Vector2( 0.7, 0.7 )
-theme = ExtResource( 3 )
+theme = ExtResource( 2 )
 text = "?"
 flat = true
 
@@ -30,10 +27,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -21.0
+margin_left = -34.5
 margin_top = -19.0
-margin_right = 21.0
-theme = ExtResource( 4 )
+margin_right = 34.5
+theme = ExtResource( 3 )
 text = "Zumbi"
 align = 1
 valign = 1
@@ -47,4 +44,4 @@ margin_left = -17.0
 margin_top = -23.5
 margin_right = 17.0
 margin_bottom = 23.5
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )

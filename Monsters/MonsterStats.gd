@@ -4,6 +4,7 @@ class_name MonsterStats
 
 export var job_name : String = "job"
 
+export var name : String
 export var description : String
 export var type : String
 export var max_health : int
