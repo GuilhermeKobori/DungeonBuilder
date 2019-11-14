@@ -1,8 +1,24 @@
 extends Control
 
-var greenSlimeScn = load("res://Monsters/GreenSlime/GreenSlime.tscn")
+var monster_stats
+var monster_name : String = ""
+var monster_text : String = ""
+
+func init(stats):
+	monster_stats = load(stats)
 
 func _ready():
+	monster_name = monster_stats.name
+	$Name.text = monster_name
+	monster_text = "Custo: " + str(monster_stats.cost) + " $\n"
+	monster_text += "Vida: " + str(monster_stats.max_health) + " \n"
+	monster_text += "Velocidade: " + str(monster_stats.speed) + " \n"
+	monster_text += "Tipo: " + str(monster_stats.type) + " \n"
+	monster_text += "Alcance: " + str(monster_stats.reach) + " \n"
+	monster_text += "Dano: " + str(monster_stats.attack) + " \n"
+	monster_text += "Velocidade de Ataque: " + str(monster_stats.atk_speed)
+
+	
 	#start the groovin' animation
 
 	#instantiates the first clone, this is done to have an
@@ -11,11 +27,9 @@ func _ready():
 	#and click once more to drag that clone and create the next
 	#one to drag.
 	##spaghetticode
-	var greenSlime = greenSlimeScn.instance()
-	add_child(greenSlime)
 
+
+	
 func _process(delta):
 	#when the icon is clicked creates a new dragable clone
-	if Input.is_mouse_button_pressed(BUTTON_LEFT):
-		var greenSlime = greenSlimeScn.instance()
-		add_child(greenSlime)
+	pass
