@@ -21,8 +21,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if event.button_index != BUTTON_LEFT or not event.pressed:
 		return
-		
+
 	despawn()
-	
+
 func despawn() -> void:
 			get_parent().remove_child(self)

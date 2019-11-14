@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Screens/GameOver.gd" type="Script" id=1]
 [ext_resource path="res://Assets/overlay.png" type="Texture" id=2]
 [ext_resource path="res://Assets/RetryButton.png" type="Texture" id=3]
 [ext_resource path="res://Assets/MainMenuButton.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sons/win music 2.wav" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Assets/Montserrat-Black.ttf"
@@ -59,3 +60,6 @@ margin_top = 68.0
 margin_right = 334.0
 margin_bottom = 117.0
 texture_normal = ExtResource( 4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
