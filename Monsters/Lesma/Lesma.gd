@@ -6,14 +6,16 @@ extends KinematicBody2D
 # var b = "text"
 
 var monster_name = 'Lesma'
-var life = 10
+var life = 20
 var attack = 2
-var speed = 3
+var speed = 1
 var sent = 1
+onready var healthy_bar = get_node("Bar")
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	healthy_bar.update_max_health(life)
 	set_physics_process(true)
 
 
@@ -39,6 +41,7 @@ func _on_Area2D_body_entered(body):
 	var other_attack = body.get('attack')
 	if other_attack != null:
 		life -= other_attack
+		healthy_bar.update_health(life, other_attack)
 	if life <= 0:
 		var loaded = load("res://Assets/Inimigos/slimeDead.png")
 

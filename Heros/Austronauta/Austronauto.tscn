@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Heros/Austronauta/Austronauta.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Heroi/Austronauta/p1_walk01.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/Heroi/Austronauta/p1_walk06.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Heroi/Austronauta/p1_walk07.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Heroi/Austronauta/p1_walk08.png" type="Texture" id=9]
+[ext_resource path="res://Interface/bar/life_bar.tscn" type="PackedScene" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -38,8 +39,7 @@ script = ExtResource( 1 )
 position = Vector2( 0, 0.77533 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
-
-frame = 1
+frame = 3
 playing = true
 
 [node name="Colisao" type="CollisionShape2D" parent="Corpo"]
@@ -52,5 +52,12 @@ position = Vector2( 0, -0.775345 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Corpo/Area2D"]
 position = Vector2( 0, 0.775345 )
 shape = SubResource( 3 )
+
+[node name="Bar" parent="Corpo" instance=ExtResource( 10 )]
+margin_left = -20.0
+margin_top = -44.2044
+margin_right = 495.97
+margin_bottom = 15.7956
+rect_scale = Vector2( 0.0814873, 0.185169 )
 [connection signal="area_entered" from="Corpo/Area2D" to="Corpo" method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="Corpo/Area2D" to="Corpo" method="_on_Area2D_body_entered"]

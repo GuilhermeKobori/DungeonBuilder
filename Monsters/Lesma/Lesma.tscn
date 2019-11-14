@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Monsters/Lesma/Lesma.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Inimigos/slimeWalk1.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Inimigos/slimeWalk2.png" type="Texture" id=3]
+[ext_resource path="res://Interface/bar/life_bar.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -48,6 +49,7 @@ script = ExtResource( 1 )
 [node name="Sprite" type="Sprite" parent="lesma/follow/Corpo"]
 scale = Vector2( 0.998148, 1.00414 )
 texture = ExtResource( 2 )
+flip_h = true
 
 [node name="anim" type="AnimationPlayer" parent="lesma/follow/Corpo"]
 anims/Rastejar = SubResource( 2 )
@@ -60,4 +62,11 @@ shape = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lesma/follow/Corpo/Area2D"]
 shape = SubResource( 4 )
+
+[node name="Bar" parent="lesma/follow/Corpo" instance=ExtResource( 4 )]
+margin_left = 27.5208
+margin_top = -38.2632
+margin_right = 459.521
+margin_bottom = 21.7368
+rect_scale = Vector2( -0.120881, 0.234722 )
 [connection signal="body_entered" from="lesma/follow/Corpo/Area2D" to="lesma/follow/Corpo" method="_on_Area2D_body_entered"]
