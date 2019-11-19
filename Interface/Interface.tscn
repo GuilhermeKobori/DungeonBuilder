@@ -20,15 +20,15 @@ texture = ExtResource( 2 )
 stretch_mode = 1
 
 [node name="CoinsCounter" parent="." instance=ExtResource( 3 )]
-margin_left = -139.701
-margin_top = 14.4044
-margin_right = -27.7008
-margin_bottom = 70.4044
+margin_left = -543.0
+margin_top = 426.0
+margin_right = -466.0
+margin_bottom = 467.0
 
 [node name="Store" parent="." instance=ExtResource( 4 )]
+margin_bottom = 2.0
 
 [node name="Popup" type="Popup" parent="."]
-visible = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 popup_exclusive = true
