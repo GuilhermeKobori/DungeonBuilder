@@ -3,13 +3,17 @@ extends Control
 var monster_stats
 var monster_name : String = ""
 var monster_text : String = ""
+var monster_cost : int
 
 func init(stats):
 	monster_stats = load(stats)
 
 func _ready():
 	monster_name = monster_stats.name
+	monster_cost = monster_stats.cost
 	$Name.text = monster_name
+	$Cost.text = str(monster_cost)
+	
 	monster_text = "Custo: " + str(monster_stats.cost) + " $\n"
 	monster_text += "Vida: " + str(monster_stats.max_health) + " \n"
 	monster_text += "Velocidade: " + str(monster_stats.speed) + " \n"
