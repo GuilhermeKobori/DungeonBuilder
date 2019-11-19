@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Interface/Monsters Menu/Monsters Infos/MonsterInfos.gd" type="Script" id=1]
 [ext_resource path="res://Interface/Monsters Menu/Monsters Infos/shade_bg.png" type="Texture" id=2]
-[ext_resource path="res://Interface/label_bg.png" type="Texture" id=3]
+[ext_resource path="res://Interface/Monsters Menu/Monsters Infos/popup.png" type="Texture" id=3]
 [ext_resource path="res://Interface/theme/close_font.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Interface/Monsters Menu/zumbi.png" type="Texture" id=5]
 [ext_resource path="res://Interface/theme/info_page_font.tres" type="DynamicFont" id=6]
@@ -32,19 +32,24 @@ margin_left = -247.0
 margin_top = -166.0
 margin_right = 247.0
 margin_bottom = 166.0
-texture = ExtResource( 3 )
 region_rect = Rect2( -0.0526352, 0.18679, 121.049, 43.8438 )
 patch_margin_left = 9
 patch_margin_top = 10
 patch_margin_right = 8
 patch_margin_bottom = 9
 
+[node name="TextureRect" type="TextureRect" parent="Infos"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 3 )
+
 [node name="Close" type="Button" parent="Infos"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -35.0
-margin_right = 1.0
-margin_bottom = 47.0
+margin_left = -46.0
+margin_top = 6.0
+margin_right = -10.0
+margin_bottom = 53.0
 custom_fonts/font = ExtResource( 4 )
 text = "X"
 flat = true
