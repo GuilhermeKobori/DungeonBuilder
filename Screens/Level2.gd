@@ -8,6 +8,11 @@ onready var path : Path2D = $Path2D
 
 
 func _ready() -> void:
+	set_physics_process(false)
+	$Interface/Play.connect("pressed", self, "start_level")
+	
+func start_level():
+	$Interface/Play.hide()
 	set_physics_process(true)
 	
 func _physics_process(delta: float) -> void:
