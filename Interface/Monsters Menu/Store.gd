@@ -1,7 +1,8 @@
 extends NinePatchRect
 
 var item_menu = load("res://Interface/Monsters Menu/item_menu.tscn")
-var monsters = ["res://Monsters/Zumbi.tres", "res://Monsters/Skeleton.tres"]
+var path = "res://Monsters/"
+var monsters = ["Zumbi", "Skeleton", "War Zombie", "Darkeleton"]
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -10,7 +11,8 @@ var monsters = ["res://Monsters/Zumbi.tres", "res://Monsters/Skeleton.tres"]
 func _ready():
 	for monster in monsters:
 		var item = item_menu.instance()
-		item.init(monster)
+		var monster_path = path + monster + ".tres"
+		item.init(monster_path)
 		$GridContainer.add_child(item)
 
 	pass # Replace with function body.

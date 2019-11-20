@@ -5,12 +5,12 @@
 [resource]
 script = ExtResource( 1 )
 job_name = "job"
-name = "Zombie"
+name = "Darkeleton"
 description = null
 type = null
-max_health = 7
-cost = 4
-attack = 3
-atk_speed = null
+max_health = 15
+cost = 10
+attack = 7
+atk_speed = 0.5
 speed = null
-reach = 2
+reach = 1

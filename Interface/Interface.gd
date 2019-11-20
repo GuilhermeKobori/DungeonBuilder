@@ -12,6 +12,7 @@ func _ready():
 	$Popup/MonsterInfos/Infos/Close.connect("pressed", self, "close_popup")
 
 func show_infos_menu(monster_name, monster_text):
+	$Popup/MonsterInfos.set_texts(monster_name, monster_text)
 	$Popup/MonsterInfos/Infos/HBoxContainer/Stats.text = monster_text
 	$Popup/MonsterInfos/Infos/HBoxContainer/VBoxContainer/Name.text = monster_name
 	$Popup.popup()
