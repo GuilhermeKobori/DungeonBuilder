@@ -4,7 +4,7 @@ var robson_factory = preload("res://FakeRobson.tscn")
 var time_elapsed = 0.0
 
 var greenSlimeScn = load("res://Monsters/GreenSlime/GreenSlime.tscn")
-var minionScn = load("res://Monsters/Minion.tscn")
+var monsterScn = load("res://Monsters/Monster.tscn")
 
 var robson_spawn_times = [600.0]
 onready var path : Path2D = $Path2D
@@ -16,10 +16,9 @@ func _ready() -> void:
 
 func bought_monster(name, cost):
 	print("Bought Monster: " + name + " - Cost $" + str(cost))
-	var monster = minionScn.instance()
-	#var monster = greenSlimeScn.instance()
-	monster.spawn(name)
-	monster.minion_name = name
+	#var monster = monsterScn.instance()
+	var monster = greenSlimeScn.instance()
+	#monster.init(name)
 	add_child(monster)
 	monster.dragging = true
 	

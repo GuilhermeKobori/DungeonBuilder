@@ -9,43 +9,19 @@ var has_been_touched = false
 var valid_tileset = [0, 2, 3, 9]
 var tile_size = 28.8
 
-#signal when monster placed in valid tile
-signal placed_monster(name, cost)
-
-var minion_stats
-var minion_name = "Zombie"
-var path = "res://Monsters/"
-var life = 100
-var attack = 2
-var speed = 0.3
-var cost = 0
-onready var healthy_bar = get_node("Bar")
-
-func spawn(name):
-	#Set Texture and Scale
-	$Sprite.texture = load(path + name + ".png")
-	var y = $Sprite.texture.get_height()
-	$Sprite.scale.x = 40.0/y
-	$Sprite.scale.y = 40.0/y
-	#Set Status
-	minion_stats = load(path + name + ".tres")
-	cost = minion_stats.cost
-	minion_name = minion_stats.name
-	
-
+func _init():
+	pass
 	
 func _ready():
 	#$AnimationPlayer.play("Groovin'")
 	pass
-
-
 	
 func _input_event(viewport, event, shape_idx):
-	print("input event")
 	if event is InputEventMouseButton:
-		dragging = event.pressed
+		can_drag = event.pressed
 
 func _process(delta):
+	print("oi")
 	if Input.is_mouse_button_pressed(BUTTON_LEFT) and dragging:
         position = get_global_mouse_position()
 	if dragging and !Input.is_mouse_button_pressed(BUTTON_LEFT):
@@ -63,5 +39,26 @@ func _process(delta):
 		#if the slime is droped in an invalid tile we delete it
 		elif !valid_tileset.has(current_tile_index):
 			get_parent().remove_child(self)
-		emit_signal("placed_monster", minion_name, cost)
+			
 		print("Position x: " + str(self.position.x) + "tile: " + str(current_tile_index))
+		
+#func _process(delta):
+#	if Input.is_mouse_button_pressed(BUTTON_LEFT) and can_drag:
+#		position = get_global_mouse_position()
+#		has_been_touched = true
+#	if has_been_touched and !Input.is_mouse_button_pressed(BUTTON_LEFT):
+#		#gets current tileset index, is used to verify if the slime
+#		#is in a valid position
+#		#Tilemaps use indexes based on the resolution in this case it
+#		#is 32x32 so we need to divide the position values to map them
+#		#to the corresponding positions of the tilemap
+#		var current_tile_index = get_node("../../Scene/TileMap").get_cell(ceil(self.position.x/30), ceil(self.position.y/30 - 1))
+#		#if the slime is dropped at the menu area we delete it
+#		if self.position.x < 170:
+#			get_parent().remove_child(self)
+#		#if the slime is not dropped in a tile we delete it
+#		elif current_tile_index == -1:
+#			get_parent().remove_child(self)
+#		#if the slime is droped in an invalid tile we delete it
+#		elif !valid_tileset.has(current_tile_index):
+#			get_parent().remove_child(self)
