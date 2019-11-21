@@ -31,4 +31,4 @@ func on_level2_button_pressed():
 	t.queue_free()
 
 	global.current_level = 2
-	# TODO
+	get_tree().change_scene("res://Screens/Level2.tscn")

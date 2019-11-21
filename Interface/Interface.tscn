@@ -22,9 +22,9 @@ texture = ExtResource( 2 )
 stretch_mode = 1
 
 [node name="CoinsCounter" parent="." instance=ExtResource( 3 )]
-margin_left = -543.0
+margin_left = -535.0
 margin_top = 426.0
-margin_right = -466.0
+margin_right = -458.0
 margin_bottom = 467.0
 
 [node name="Store" parent="." instance=ExtResource( 4 )]

@@ -13,14 +13,15 @@ func _init():
 	pass
 	
 func _ready():
-	$AnimationPlayer.play("Groovin'")
-
+	#$AnimationPlayer.play("Groovin'")
+	pass
+	
 func _input_event(viewport, event, shape_idx):
-	print("input event")
 	if event is InputEventMouseButton:
 		can_drag = event.pressed
 
 func _process(delta):
+	print("oi")
 	if Input.is_mouse_button_pressed(BUTTON_LEFT) and dragging:
         position = get_global_mouse_position()
 	if dragging and !Input.is_mouse_button_pressed(BUTTON_LEFT):

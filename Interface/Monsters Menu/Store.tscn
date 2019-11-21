@@ -9,7 +9,7 @@
 anchor_bottom = 1.0
 margin_right = 167.0
 margin_bottom = 1.0
-rect_min_size = Vector2( 130, 400 )
+rect_min_size = Vector2( 180, 400 )
 region_rect = Rect2( -0.684219, -0.631582, 98.9474, 97.8947 )
 script = ExtResource( 1 )
 __meta__ = {
@@ -24,9 +24,11 @@ texture = ExtResource( 2 )
 stretch_mode = 1
 
 [node name="Back" type="TextureRect" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 172.0
+margin_bottom = 482.0
+rect_min_size = Vector2( 170, 0 )
 texture = ExtResource( 3 )
+stretch_mode = 7
 
 [node name="Label" type="Label" parent="."]
 margin_left = 10.0
