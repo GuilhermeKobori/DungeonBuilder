@@ -41,37 +41,40 @@ patch_margin_right = 8
 patch_margin_bottom = 9
 
 [node name="TextureRect" type="TextureRect" parent="Infos"]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource( 3 )
 
 [node name="Close" type="Button" parent="Infos"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -46.0
-margin_top = 6.0
-margin_right = -10.0
-margin_bottom = 53.0
+margin_left = -51.0
+margin_top = 2.0
+margin_right = -15.0
+margin_bottom = 60.0
 custom_fonts/font = ExtResource( 4 )
 text = "X"
 flat = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Infos"]
 anchor_top = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = -103.5
-margin_right = 425.0
-margin_bottom = 103.5
-alignment = 2
+margin_top = -117.5
+margin_bottom = 117.5
+alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Infos/HBoxContainer"]
-margin_right = 150.0
-margin_bottom = 207.0
+margin_left = 45.0
+margin_right = 195.0
+margin_bottom = 235.0
 rect_min_size = Vector2( 150, 0 )
+alignment = 1
 
 [node name="Control" type="Control" parent="Infos/HBoxContainer/VBoxContainer"]
+margin_top = 40.0
 margin_right = 150.0
-margin_bottom = 120.0
+margin_bottom = 160.0
 rect_min_size = Vector2( 120, 120 )
 
 [node name="Icon" type="TextureRect" parent="Infos/HBoxContainer/VBoxContainer/Control"]
@@ -89,9 +92,9 @@ expand = true
 stretch_mode = 6
 
 [node name="Name" type="Label" parent="Infos/HBoxContainer/VBoxContainer"]
-margin_top = 124.0
+margin_top = 164.0
 margin_right = 150.0
-margin_bottom = 151.0
+margin_bottom = 195.0
 custom_fonts/font = ExtResource( 6 )
 text = "Zumbi"
 align = 1
@@ -99,14 +102,14 @@ valign = 1
 autowrap = true
 
 [node name="Stats" type="Label" parent="Infos/HBoxContainer"]
-margin_left = 154.0
-margin_right = 451.0
-margin_bottom = 207.0
+margin_left = 199.0
+margin_right = 454.0
+margin_bottom = 235.0
 custom_fonts/font = ExtResource( 6 )
 text = "Custo: 20 $
 Vida: 30
 Velocidade: 0.5
 Tipo: Melee
 Alcance: 1
-Velocidade de Ataque: 1
+Vel. de Ataque: 1
 Dano: 5"
