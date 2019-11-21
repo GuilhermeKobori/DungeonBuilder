@@ -29,3 +29,7 @@ func close_popup():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func input(event):
+	if event is InputEventMouseButton:
+		print("aqui inter")

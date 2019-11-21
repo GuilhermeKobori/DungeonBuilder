@@ -2,7 +2,7 @@ extends NinePatchRect
 
 var item_menu = load("res://Interface/Monsters Menu/item_menu.tscn")
 var path = "res://Monsters/"
-var monsters = ["Zumbi", "Skeleton", "War Zombie", "Darkeleton"]
+var monsters = ["Zombie", "Skeleton", "War Zombie", "Darkeleton"]
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
