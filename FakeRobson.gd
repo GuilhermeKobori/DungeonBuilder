@@ -3,7 +3,7 @@ extends PathFollow2D
 var MAX_SPEED = 200.0
 var speed : = 400.0
 signal reached_end
-signal killed_hero(drop)
+signal killed_hero(hero)
 var drop = 5
 
 var sent = 1
@@ -25,5 +25,5 @@ func _process(delta: float) -> void:
 
 
 func despawn() -> void:
-	emit_signal("killed_hero", drop)
+	emit_signal("killed_hero", self)
 	get_parent().remove_child(self)

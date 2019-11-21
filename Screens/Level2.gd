@@ -2,6 +2,7 @@ extends Node
 
 signal cash_updated(cash)
 
+var drop_factory = preload("res://Interface/CoinDrop.tscn")
 var robson_factory = preload("res://FakeRobson.tscn")
 var time_elapsed = 0.0
 
@@ -51,9 +52,18 @@ func spawn_robson() -> void:
 	var robson = robson_factory.instance()
 	path.add_child(robson)
 	robson.connect("reached_end", self, "_on_end_reached")
+	robson.connect("killed_hero", self, "on_hero_killed")
 	
 func on_monster_placed(name, cash):
 	update_cash(-1 * cash)
+	
+func on_hero_killed(hero):
+	update_cash(hero.drop)
+	var drop = drop_factory.instance()
+	drop.set_position(hero.position)
+	drop.get_node("Coins").text = str(hero.drop)
+	add_child(drop)
+
 	
 func update_cash(delta) -> void:
 	cash += delta
