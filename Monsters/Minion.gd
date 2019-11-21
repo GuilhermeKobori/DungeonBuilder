@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends KinematicBody2D
 
 #defines dragability
 var can_drag = false
@@ -16,10 +16,20 @@ var minion_stats
 var minion_name = "Zombie"
 var path = "res://Monsters/"
 var life = 100
-var attack = 2
-var speed = 0.3
+var attack = 5
 var cost = 0
+var atk_speed = 2
+
+var fighting = false
+var minion_placed = false
+
+#Enemy
+var hero
+var hero_attack
+var hero_atk_speed
+
 onready var healthy_bar = get_node("Bar")
+
 
 func spawn(name):
 	#Set Texture and Scale
@@ -31,11 +41,15 @@ func spawn(name):
 	minion_stats = load(path + name + ".tres")
 	cost = minion_stats.cost
 	minion_name = minion_stats.name
+	life = minion_stats.max_health
+	attack = minion_stats.attack
+	atk_speed = minion_stats.atk_speed
 	
 
 	
 func _ready():
 	#$AnimationPlayer.play("Groovin'")
+	healthy_bar.update_max_health(life)
 	pass
 
 
@@ -67,5 +81,49 @@ func _process(delta):
 			get_parent().remove_child(self)
 			return
 		
+		#Has been placed
+		minion_placed = true
 		emit_signal("placed_monster", minion_name, cost)
 		print("Position x: " + str(self.position.x) + "tile: " + str(current_tile_index))
+		
+		
+	#DEAD
+	if life <= 0:
+		print("Monster Dead")
+		despawn()
+			
+
+func despawn() -> void:
+		get_parent().remove_child(self)
+
+func _on_Area2D_body_entered(body):
+	print("ENTROU")
+	if body.get('hero') and minion_placed:
+		print("fight")
+		fighting = true
+		hero_attack = body.get('attack')
+		if hero_attack != null:
+			life -= hero_attack
+			healthy_bar.update_health(life, hero_attack)
+			print(life)
+		hero_atk_speed = body.get('atk_speed')
+		$Timer.wait_time = hero_atk_speed
+		$Timer.start()
+	pass # Replace with function body.
+
+
+func _on_Timer_timeout():
+	print("atk")
+	if fighting:
+		if hero_attack != null:
+			life -= hero_attack
+			healthy_bar.update_health(life, hero_attack)
+			print(life)
+	pass # Replace with function body.
+
+
+func _on_Area2D_body_exited(body):
+	fighting = false
+	$Timer.wait_time = 999999.9
+	print("Matou")
+	pass # Replace with function body.

@@ -10,7 +10,7 @@ var minionScn = load("res://Monsters/Minion.tscn")
 
 var cash : = 0
 
-var robson_spawn_times = [600.0]
+var robson_spawn_times = [5.0, 10.0]
 onready var path : Path2D = $Path2D
 
 
