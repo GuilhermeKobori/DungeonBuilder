@@ -1,10 +1,14 @@
 extends Node
 
+signal cash_updated(cash)
+
 var robson_factory = preload("res://FakeRobson.tscn")
 var time_elapsed = 0.0
 
 var greenSlimeScn = load("res://Monsters/GreenSlime/GreenSlime.tscn")
 var minionScn = load("res://Monsters/Minion.tscn")
+
+var cash : = 0
 
 var robson_spawn_times = [600.0]
 onready var path : Path2D = $Path2D
@@ -13,6 +17,10 @@ onready var path : Path2D = $Path2D
 func _ready() -> void:
 	set_physics_process(true)
 	$Interface.connect("create_monster", self, "bought_monster")
+	
+	connect("cash_updated", $Interface/CoinsCounter, "on_cash_updated")
+	connect("cash_updated", $Interface/Store, "on_cash_updated")
+	update_cash(5)
 
 func bought_monster(name, cost):
 	print("Bought Monster: " + name + " - Cost $" + str(cost))
@@ -22,6 +30,7 @@ func bought_monster(name, cost):
 	monster.minion_name = name
 	add_child(monster)
 	monster.dragging = true
+	monster.connect("placed_monster", self, "on_monster_placed")
 	
 func _physics_process(delta: float) -> void:
 	time_elapsed += delta
@@ -43,3 +52,9 @@ func spawn_robson() -> void:
 	path.add_child(robson)
 	robson.connect("reached_end", self, "_on_end_reached")
 	
+func on_monster_placed(name, cash):
+	update_cash(-1 * cash)
+	
+func update_cash(delta) -> void:
+	cash += delta
+	emit_signal("cash_updated", cash)

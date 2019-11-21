@@ -25,18 +25,8 @@ func _ready():
 	monster_text += "Dano: " + str(monster_stats.attack) + " \n"
 	monster_text += "Vel. de Ataque: " + str(monster_stats.atk_speed)
 
+func enable_grayscale():
+	$Sprite.texture = load(path + monster_name + "_gray.png") 
 	
-	#start the groovin' animation
-
-	#instantiates the first clone, this is done to have an
-	#already instantiated node to move.
-	#Otherwise we need to click first to create a new clone
-	#and click once more to drag that clone and create the next
-	#one to drag.
-	##spaghetticode
-
-
-	
-func _process(delta):
-	#when the icon is clicked creates a new dragable clone
-	pass
+func disable_grayscale():
+	$Sprite.texture = load(path + monster_name + ".png") 

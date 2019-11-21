@@ -17,9 +17,15 @@ func _ready():
 
 	pass # Replace with function body.
 
-
-	
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func on_cash_updated(cash):
+	for item in $GridContainer.get_children():
+		if item.monster_cost > cash:
+			item.get_node("Name").set("custom_colors/font_color", "#555555")
+			item.get_node("Button").set("custom_colors/font_color", "#555555")
+			item.get_node("Cost").set("custom_colors/font_color", "#FF0000")
+			item.enable_grayscale()	
+		else:
+			item.get_node("Name").set("custom_colors/font_color", "#634726")
+			item.get_node("Button").set("custom_colors/font_color", "#886e4e")
+			item.get_node("Cost").set("custom_colors/font_color", "#393210")
+			item.disable_grayscale()				

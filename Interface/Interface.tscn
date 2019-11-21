@@ -6,20 +6,27 @@
 [ext_resource path="res://Interface/Monsters Menu/Store.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Interface/Monsters Menu/Monsters Infos/MonsterInfos.tscn" type="PackedScene" id=5]
 
-
 [node name="Interface" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 720, 480 )
 script = ExtResource( 1 )
 
-[node name="CoinsCounter" parent="." instance=ExtResource( 2 )]
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+margin_right = 656.0
+margin_bottom = 441.0
+rect_scale = Vector2( 1.1, 1.1 )
+texture = ExtResource( 2 )
+stretch_mode = 1
+
+[node name="CoinsCounter" parent="." instance=ExtResource( 3 )]
 margin_left = -535.0
 margin_top = 426.0
-margin_right = -458.0
+margin_right = -465.0
 margin_bottom = 467.0
 
-[node name="Store" parent="." instance=ExtResource( 3 )]
+[node name="Store" parent="." instance=ExtResource( 4 )]
 margin_right = 170.0
 margin_bottom = 2.0
 
@@ -27,6 +34,5 @@ margin_bottom = 2.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 popup_exclusive = true
-
 
 [node name="MonsterInfos" parent="Popup" instance=ExtResource( 5 )]

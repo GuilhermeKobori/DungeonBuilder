@@ -57,11 +57,15 @@ func _process(delta):
 		#if the slime is dropped at the menu area we delete it
 		if self.position.x < 167:
 			get_parent().remove_child(self)
+			return
 		#if the slime is not dropped in a tile we delete it
 		elif current_tile_index == -1:
 			get_parent().remove_child(self)
+			return
 		#if the slime is droped in an invalid tile we delete it
 		elif !valid_tileset.has(current_tile_index):
 			get_parent().remove_child(self)
+			return
+		
 		emit_signal("placed_monster", minion_name, cost)
 		print("Position x: " + str(self.position.x) + "tile: " + str(current_tile_index))

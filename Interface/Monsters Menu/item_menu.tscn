@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Interface/Monsters Menu/item_menu.gd" type="Script" id=1]
 [ext_resource path="res://Interface/theme/info_theme.tres" type="Theme" id=2]
 [ext_resource path="res://Interface/theme/monster_name.tres" type="Theme" id=3]
 [ext_resource path="res://Monsters/War Zombie.png" type="Texture" id=4]
 [ext_resource path="res://Interface/Coins/gold_coins.png" type="Texture" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=1]
 
 [node name="item_menu" type="Control"]
 margin_right = 60.0
@@ -72,4 +74,5 @@ margin_left = 13.6765
 margin_top = 16.6177
 margin_right = 54.6765
 margin_bottom = 57.6177
+custom_styles/focus = SubResource( 1 )
 flat = true

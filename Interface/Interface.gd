@@ -20,7 +20,9 @@ func show_infos_menu(monster_name, monster_text):
 	$Popup.popup()
 	
 func buy_monster(monster_name, monster_cost):
-	print("Buy")
+	if monster_cost > get_parent().cash:
+		return
+		
 	emit_signal("create_monster", monster_name, monster_cost)
 	
 func close_popup():
