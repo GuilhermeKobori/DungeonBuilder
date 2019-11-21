@@ -23,7 +23,7 @@ func _ready():
 	monster_text += "Tipo: " + str(monster_stats.type) + " \n"
 	monster_text += "Alcance: " + str(monster_stats.reach) + " \n"
 	monster_text += "Dano: " + str(monster_stats.attack) + " \n"
-	monster_text += "Velocidade de Ataque: " + str(monster_stats.atk_speed)
+	monster_text += "Vel. de Ataque: " + str(monster_stats.atk_speed)
 
 	
 	#start the groovin' animation
