@@ -25,12 +25,11 @@ func _ready() -> void:
 func bought_monster(name, cost):
 	print("Bought Monster: " + name + " - Cost $" + str(cost))
 	var monster = minionScn.instance()
-	#var monster = greenSlimeScn.instance()
 	monster.spawn(name)
-	monster.minion_name = name
 	add_child(monster)
 	monster.dragging = true
 	monster.connect("placed_monster", self, "on_monster_placed")
+
 	
 func _physics_process(delta: float) -> void:
 	time_elapsed += delta
@@ -51,7 +50,7 @@ func spawn_robson() -> void:
 	var robson = robson_factory.instance()
 	path.add_child(robson)
 	robson.connect("reached_end", self, "_on_end_reached")
-	
+
 func on_monster_placed(name, cash):
 	update_cash(-1 * cash)
 	
