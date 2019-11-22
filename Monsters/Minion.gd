@@ -129,6 +129,7 @@ func _on_Area2D_body_exited(body):
 		if hero_q.size() > 0:
 			print("pop")
 			hero = hero_q[0]
+			print(hero.name)
 			hero_q.remove(0)
 			hero.minion_atk(attack)
 			$Timer.wait_time = atk_speed

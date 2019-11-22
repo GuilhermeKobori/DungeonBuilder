@@ -12,7 +12,7 @@ font_path = "res://Assets/Montserrat-Black.ttf"
 size = 48
 font_data = SubResource( 1 )
 
-[node name="GameOver" type="Control"]
+[node name="Win" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
@@ -44,7 +44,7 @@ align = 1
 [node name="Buttons" type="VBoxContainer" parent="Menu"]
 margin_top = 159.0
 margin_right = 334.0
-margin_bottom = 208.0
+margin_bottom = 276.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 custom_constants/separation = 19
@@ -52,6 +52,12 @@ custom_constants/separation = 19
 [node name="MainMenu" type="TextureButton" parent="Menu/Buttons"]
 margin_right = 334.0
 margin_bottom = 49.0
+texture_normal = ExtResource( 3 )
+
+[node name="Next" type="TextureButton" parent="Menu/Buttons"]
+margin_top = 68.0
+margin_right = 334.0
+margin_bottom = 117.0
 texture_normal = ExtResource( 3 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

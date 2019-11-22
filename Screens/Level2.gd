@@ -10,9 +10,10 @@ var greenSlimeScn = load("res://Monsters/GreenSlime/GreenSlime.tscn")
 var minionScn = load("res://Monsters/Minion.tscn")
 
 var cash : = 0
+var cash_start = 15
 
 var robson_spawn_times = [5.0, 10.0]
-var initial_number_of_robsons = 10
+
 var dead_robsons = 0
 var number_of_robsons = 10
 onready var path : Path2D = $Path2D

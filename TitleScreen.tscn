@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://TitleScreen.gd" type="Script" id=1]
 [ext_resource path="res://Assets/overlay.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Level1Button.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Level2Button.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Sons/Track 1 - Cubiculacetophobie.wav" type="AudioStream" id=5]
-[ext_resource path="res://Assets/Sons/Minimare_Hiss.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Sons/Track 1 - Cubiculacetophobie.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Sons/Minimare_Hiss.wav" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Assets/Montserrat-Black.ttf"
@@ -48,28 +46,16 @@ align = 1
 [node name="Buttons" type="HBoxContainer" parent="Menu"]
 margin_top = 103.0
 margin_right = 640.0
-margin_bottom = 244.0
+margin_bottom = 103.0
 size_flags_horizontal = 3
 custom_constants/separation = 39
 alignment = 1
 
-[node name="Level1" type="TextureButton" parent="Menu/Buttons"]
-margin_left = 159.0
-margin_right = 300.0
-margin_bottom = 141.0
-texture_normal = ExtResource( 3 )
-
-[node name="Level2" type="TextureButton" parent="Menu/Buttons"]
-margin_left = 339.0
-margin_right = 480.0
-margin_bottom = 141.0
-texture_normal = ExtResource( 4 )
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
+stream = ExtResource( 3 )
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
+stream = ExtResource( 4 )
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
