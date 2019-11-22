@@ -97,14 +97,19 @@ func despawn() -> void:
 
 #When Hero begin battle
 func _on_Area2D_body_entered(body):
+	print(" ENTROOOU " + str(body) + str(body.get('hero')))
+	
 	if body.get('hero') and minion_placed:
+		print(body)
 		fighting = true
+		hero_q.append(body)
 		#If already battling
 		if hero != null:
 			print("Append")
-			hero_q.append(body)
+#			hero_q.append(body)
 		else:
-			hero = body
+			hero = hero_q[0]
+			hero_q.remove(0)
 			hero.minion_atk(hero.attack)
 			$Timer.wait_time = atk_speed
 			$Timer.start()
@@ -113,13 +118,13 @@ func _on_Area2D_body_entered(body):
 #Suffered Attack
 func hero_atk(damage):
 	print("Hero atk " + str(damage))
+	print(hero)
 	life -= damage
 	healthy_bar.update_health(life, damage)
 
 #Atk timer
 func _on_Timer_timeout():
 	if fighting:
-		print(hero)
 		hero.minion_atk(attack)
 
 func _on_Area2D_body_exited(body):
@@ -129,7 +134,6 @@ func _on_Area2D_body_exited(body):
 		if hero_q.size() > 0:
 			print("pop")
 			hero = hero_q[0]
-			print(hero.name)
 			hero_q.remove(0)
 			hero.minion_atk(attack)
 			$Timer.wait_time = atk_speed

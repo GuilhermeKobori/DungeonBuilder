@@ -78,5 +78,4 @@ func _on_Area2D_body_exited(body):
 			get_parent().speed = speed
 			$Timer.wait_time = 999999.9
 			fighting = false
-			hero = null
 			monster = null
