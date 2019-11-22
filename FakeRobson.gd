@@ -12,7 +12,7 @@ var sent = 1
 var speed : = 200.0
 var hero_stats
 var hero_speed = 200.0
-var drop = 5 
+
 var life = 30
 var hero_name
 var attack = 3
