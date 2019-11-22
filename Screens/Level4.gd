@@ -71,7 +71,7 @@ func on_hero_killed(hero):
 	dead_robsons += 1
 	update_cash(hero.drop)
 	var drop = drop_factory.instance()
-	drop.set_position(hero.position)
+	drop.set_position(hero.get_global_transform().origin)
 	drop.get_node("Coins").text = str(hero.drop)
 	add_child(drop)
 
