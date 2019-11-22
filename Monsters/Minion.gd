@@ -56,7 +56,6 @@ func _ready():
 
 	
 func _input_event(viewport, event, shape_idx):
-	print("input event")
 	if event is InputEventMouseButton:
 		dragging = event.pressed
 
@@ -88,37 +87,29 @@ func _process(delta):
 		
 	#DEAD
 	if life <= 0:
-		print("Monster Dead")
 		despawn()
-			
 
 func despawn() -> void:
 	get_parent().remove_child(self)
 
 #When Hero begin battle
 func _on_Area2D_body_entered(body):
-	print(" ENTROOOU " + str(body) + str(body.get('hero')))
-	
 	if body.get('hero') and minion_placed:
 		print(body)
 		fighting = true
 		hero_q.append(body)
 		#If already battling
 		if hero != null:
-			print("Append")
-#			hero_q.append(body)
+			pass
 		else:
 			hero = hero_q[0]
 			hero_q.remove(0)
 			hero.minion_atk(hero.attack)
 			$Timer.wait_time = atk_speed
 			$Timer.start()
-	pass # Replace with function body.
 
 #Suffered Attack
 func hero_atk(damage):
-	print("Hero atk " + str(damage))
-	print(hero)
 	life -= damage
 	healthy_bar.update_health(life, damage)
 
@@ -129,10 +120,8 @@ func _on_Timer_timeout():
 
 func _on_Area2D_body_exited(body):
 	if body == hero:
-		print("Matou")
 		#If more heros to kill
 		if hero_q.size() > 0:
-			print("pop")
 			hero = hero_q[0]
 			hero_q.remove(0)
 			hero.minion_atk(attack)

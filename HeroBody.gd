@@ -31,7 +31,6 @@ func set_status(l, a, a_s, s):
 	
 func _process(delta: float) -> void:
 	if life <= 0:
-			print("Robson Dead")
 			despawn()
 
 func despawn() -> void:
@@ -54,7 +53,6 @@ func _on_Area2D_body_entered(body):
 
 #Suffered Attack
 func minion_atk(damage):
-	print("Minion atk " + str(damage))
 	life -= damage
 	healthy_bar.update_health(life, damage)
 

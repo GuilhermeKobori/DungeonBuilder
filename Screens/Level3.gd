@@ -58,6 +58,7 @@ func spawn_robson() -> void:
 	#Spawn robson type
 	robson.spawn("Robson")
 	var choice = randi()%2
+	print(choice)
 	path[choice].add_child(robson)
 	robson.connect("reached_end", self, "_on_end_reached")
 
