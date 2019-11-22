@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Interface/theme/buttons_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Interface/theme/button_hover_style.tres" type="StyleBox" id=2]
+[ext_resource path="res://Interface/theme/button_disabled_style.tres" type="StyleBox" id=3]
+[ext_resource path="res://Interface/theme/button_style.tres" type="StyleBox" id=4]
+
+[node name="Button" type="Button"]
+margin_right = 12.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/disabled = ExtResource( 3 )
+custom_styles/normal = ExtResource( 4 )
+text = "Text"

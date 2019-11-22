@@ -18,6 +18,7 @@ func show_infos_menu(monster_name, monster_text):
 	$Popup/MonsterInfos/Infos/HBoxContainer/Stats.text = monster_text
 	$Popup/MonsterInfos/Infos/HBoxContainer/VBoxContainer/Name.text = monster_name
 	$Popup.popup()
+	get_tree().paused = true
 	
 func buy_monster(monster_name, monster_cost):
 	if monster_cost > get_parent().cash:
@@ -26,12 +27,5 @@ func buy_monster(monster_name, monster_cost):
 	emit_signal("create_monster", monster_name, monster_cost)
 	
 func close_popup():
-	print("close")
 	$Popup.hide()
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-func input(event):
-	if event is InputEventMouseButton:
-		print("aqui inter")
+	get_tree().paused = false

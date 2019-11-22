@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Screens/LevelSelect.gd" type="Script" id=1]
+[ext_resource path="res://Assets/overlay.png" type="Texture" id=2]
+[ext_resource path="res://Interface/theme/menu_title_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/Sons/win music 2.wav" type="AudioStream" id=4]
+
+[node name="LevelSelect" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_top = 30.0
+margin_right = -30.0
+margin_bottom = -30.0
+texture = ExtResource( 2 )
+
+[node name="Menu" type="VBoxContainer" parent="."]
+margin_left = 142.0
+margin_top = 80.0
+margin_right = 577.0
+margin_bottom = 400.0
+custom_constants/separation = 29
+
+[node name="Title" type="Label" parent="Menu"]
+margin_right = 435.0
+margin_bottom = 60.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0.203922, 0.203922, 0.203922, 1 )
+text = "Select Level"
+align = 1
+
+[node name="Levels" type="GridContainer" parent="Menu"]
+margin_top = 89.0
+margin_right = 435.0
+margin_bottom = 320.0
+size_flags_vertical = 3
+custom_constants/vseparation = 15
+custom_constants/hseparation = 15
+columns = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )

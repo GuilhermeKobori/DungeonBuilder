@@ -1,17 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Screens/GameOver.gd" type="Script" id=1]
 [ext_resource path="res://Assets/overlay.png" type="Texture" id=2]
-[ext_resource path="res://Assets/RetryButton.png" type="Texture" id=3]
-[ext_resource path="res://Assets/MainMenuButton.png" type="Texture" id=4]
+[ext_resource path="res://Interface/theme/menu_title_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Interface/StyledButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Sons/win music 2.wav" type="AudioStream" id=5]
-
-[sub_resource type="DynamicFontData" id=1]
-font_path = "res://Assets/Montserrat-Black.ttf"
-
-[sub_resource type="DynamicFont" id=2]
-size = 48
-font_data = SubResource( 1 )
 
 [node name="GameOver" type="Control"]
 anchor_right = 1.0
@@ -37,29 +30,28 @@ custom_constants/separation = 63
 [node name="Title" type="Label" parent="Menu"]
 margin_right = 335.0
 margin_bottom = 60.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.203922, 0.203922, 0.203922, 1 )
 text = "Game Over :("
 align = 1
 
 [node name="Buttons" type="VBoxContainer" parent="Menu"]
 margin_top = 123.0
-margin_right = 334.0
-margin_bottom = 240.0
-size_flags_horizontal = 4
+margin_right = 335.0
+margin_bottom = 246.0
 size_flags_vertical = 0
 custom_constants/separation = 19
 
-[node name="Retry" type="TextureButton" parent="Menu/Buttons"]
-margin_right = 334.0
-margin_bottom = 49.0
-texture_normal = ExtResource( 3 )
+[node name="Retry" parent="Menu/Buttons" instance=ExtResource( 4 )]
+margin_right = 335.0
+margin_bottom = 52.0
+text = "Retry"
 
-[node name="MainMenu" type="TextureButton" parent="Menu/Buttons"]
-margin_top = 68.0
-margin_right = 334.0
-margin_bottom = 117.0
-texture_normal = ExtResource( 4 )
+[node name="MainMenu" parent="Menu/Buttons" instance=ExtResource( 4 )]
+margin_top = 71.0
+margin_right = 335.0
+margin_bottom = 123.0
+text = "Main Menu"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
