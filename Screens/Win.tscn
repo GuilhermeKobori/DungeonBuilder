@@ -55,3 +55,4 @@ text = "Main Menu"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+[connection signal="pressed" from="Menu/Buttons/NextLevel" to="." method="_on_NextLevel_pressed"]
