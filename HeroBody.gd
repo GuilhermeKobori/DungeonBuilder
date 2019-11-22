@@ -23,9 +23,7 @@ func _ready() -> void:
 	healthy_bar.update_max_health(life)
 	set_physics_process(true)
 
-
 func set_status(l, a, a_s, s):
-	print("Set : " + str(a))
 	life = l
 	attack = a
 	atk_speed = a_s
@@ -68,10 +66,6 @@ func _on_Timer_timeout():
 #End Battle
 func _on_Area2D_body_exited(body):
 	if body == monster:
-		fighting = false
-		$Timer.wait_time = 999999.9
-		print("Matou")
-		get_parent().speed = speed
 		#If more heros to kill
 		if monster_q.size() > 0:
 			monster = monster_q[0]
@@ -80,4 +74,9 @@ func _on_Area2D_body_exited(body):
 			$Timer.wait_time = atk_speed
 			$Timer.start()
 		else:
+			#Continue walking
+			get_parent().speed = speed
+			$Timer.wait_time = 999999.9
+			fighting = false
+			hero = null
 			monster = null

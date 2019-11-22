@@ -11,6 +11,6 @@ type = null
 max_health = 20
 cost = 2
 attack = 3
-atk_speed = null
+atk_speed = 1.5
 speed = 1.0
 reach = 1

@@ -21,7 +21,7 @@ onready var path : Path2D = $Path2D
 func _ready() -> void:
 	set_physics_process(true)
 	$Interface.connect("create_monster", self, "bought_monster")
-	get_node("AudioStreamPlayer").play()
+	#get_node("AudioStreamPlayer").play()
 
 	connect("cash_updated", $Interface/CoinsCounter, "on_cash_updated")
 	connect("cash_updated", $Interface/Store, "on_cash_updated")
@@ -54,6 +54,8 @@ func _on_end_reached() -> void:
 
 func spawn_robson() -> void:
 	var robson = robson_factory.instance()
+	#Spawn robson type
+	robson.spawn("Robson")
 	path.add_child(robson)
 	robson.connect("reached_end", self, "_on_end_reached")
 
