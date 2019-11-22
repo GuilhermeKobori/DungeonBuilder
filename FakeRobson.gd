@@ -3,7 +3,9 @@ extends PathFollow2D
 var path = "res://Heros/"
 
 signal reached_end
-signal killed_hero(drop)
+
+signal killed_hero(hero)
+var drop = 5
 
 var sent = 1
 #Stats
@@ -50,5 +52,5 @@ func _process(delta: float) -> void:
 		despawn()
 
 func despawn() -> void:
-	emit_signal("killed_hero", drop)
+	emit_signal("killed_hero", self)
 	get_parent().remove_child(self)
