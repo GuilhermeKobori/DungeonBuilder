@@ -35,12 +35,12 @@ func spawn(name):
 	#life
 	#name
 	#atk_speed
-	
+
 	#TODO pass values to HeroBody
 	#$HeroBody.set_status(life, attack, atk_speed, speed)
 	pass
-	
-	
+
+
 func _ready() -> void:
 	set_process(true)
 	set_physics_process(true)
