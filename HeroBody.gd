@@ -1,85 +1,82 @@
 extends KinematicBody2D
 
-var MAX_SPEED = 200.0
-
 onready var healthy_bar = get_node("Bar")
-var monster_name = 'Lesma'
+signal hero_attack(id, damage)
+
+var fighting = false
+
 var life = 30
-var attack = 5
-var atk_speed = 1
+var attack = 4
+var atk_speed = 2
+var speed = 0.0
 
 var hero = true
 
 #Enemy stats
-var fighting = false
 var monster
-var monster_attack
-var monster_atk_speed
+var monster_q : Array = [] #Enemies queue
 
 var sent = 1
+
 func _ready() -> void:
 	set_process(true)
 	healthy_bar.update_max_health(life)
 	set_physics_process(true)
 
-
+func set_status(l, a, a_s, s):
+	print("Set : " + str(a))
+	life = l
+	attack = a
+	atk_speed = a_s
+	speed = s
+	
 func _process(delta: float) -> void:
 	if life <= 0:
 			print("Robson Dead")
 			despawn()
-#			var loaded = load("res://Assets/Inimigos/slimeDead.png")
-#
-#			get_node("anim").stop()
-#			get_node("Sprite").set_texture(loaded)
-#			get_node("Sprite").set_offset(Vector2(0, 8))
-#			get_node("Area2D").queue_free()
-#			set_physics_process(false)
-#			yield(get_tree().create_timer(1.0), "timeout")
-#			get_parent().queue_free()
-#	if fighting:
-#		monster_attack = monster.get('attack')
-#		if monster_attack != null:
-#			life -= monster_attack
-#			healthy_bar.update_health(life, monster_attack)
-	pass
-		
-
 
 func despawn() -> void:
 			get_parent().despawn()
 
+#Start Battle
 func _on_Area2D_body_entered(body):
-	print("ENTROU 2")
 	if body.get('minion_placed'):
-		print("luta")
 		get_parent().speed = 0.0
-		monster = body
+		#If already battling
+		if monster != null:
+			monster_q.append(body)
+		else:
+			monster = body
+			monster.hero_atk(attack)
+			$Timer.wait_time = atk_speed
+			$Timer.start()
 		fighting = true
-		
-		monster_attack = body.get('attack')
-		if monster_attack != null:
-			life -= monster_attack
-			healthy_bar.update_health(life, monster_attack)
-		monster_atk_speed = body.get('atk_speed')
-		$Timer.wait_time = monster_atk_speed
-		$Timer.start()
-	pass # Replace with function body.
 
 
+#Suffered Attack
+func minion_atk(damage):
+	print("Minion atk " + str(damage))
+	life -= damage
+	healthy_bar.update_health(life, damage)
+
+#Attack Timer
 func _on_Timer_timeout():
-	print("atking")
 	if fighting:
-		if monster_attack != null:
-			life -= monster_attack
-			healthy_bar.update_health(life, monster_attack)
-			print(life)
-	pass # Replace with function body.
+		monster.hero_atk(attack)
 
-	
+#End Battle
 func _on_Area2D_body_exited(body):
 	if body == monster:
 		fighting = false
 		$Timer.wait_time = 999999.9
 		print("Matou")
-		get_parent().speed = MAX_SPEED
-	pass # Replace with function body.
+		get_parent().speed = speed
+		#If more heros to kill
+		if monster_q.size() > 0:
+			monster = monster_q[0]
+			monster_q.remove(0)
+			monster.minion_atk(attack)
+			$Timer.wait_time = atk_speed
+			$Timer.start()
+		else:
+			monster = null

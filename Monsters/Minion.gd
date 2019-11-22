@@ -1,7 +1,6 @@
 extends KinematicBody2D
 
 #defines dragability
-var can_drag = false
 var dragging = false
 #defines if the node can be deleted if it return to the menu
 var has_been_touched = false
@@ -11,6 +10,7 @@ var tile_size = 28.8
 
 #signal when monster placed in valid tile
 signal placed_monster(name, cost)
+signal minion_attack(id, damage)
 
 var minion_stats
 var minion_name = "Zombie"
@@ -20,13 +20,14 @@ var attack = 5
 var cost = 0
 var atk_speed = 2
 
+
 var fighting = false
 var minion_placed = false
 
 #Enemy
-var hero
-var hero_attack
-var hero_atk_speed
+var hero = null
+var hero_q : Array = [] #Enemies queue
+
 
 onready var healthy_bar = get_node("Bar")
 
@@ -60,13 +61,12 @@ func _input_event(viewport, event, shape_idx):
 		dragging = event.pressed
 
 func _process(delta):
+	#Drag while button pressed
 	if Input.is_mouse_button_pressed(BUTTON_LEFT) and dragging:
         position = get_global_mouse_position()
+	#When released verify valid position and place it
 	if dragging and !Input.is_mouse_button_pressed(BUTTON_LEFT):
 		dragging = false
-		print("x: " + str(self.position.x) + " y: " + str(self.position.y))
-		print("x: " + str(floor(self.position.x/tile_size)) + " y: " + str(floor(self.position.y/tile_size)))
-		#get_node("../../Scene/TileMap").map_to_world(Vector2(floor(self.position.x/tile_size), floor(self.position.y/tile_size))) 
 		var current_tile_index = get_node("../../Scene/TileMap").get_cell(floor(self.position.x/28.8), floor(self.position.y/28.8))
 		#if the slime is dropped at the menu area we delete it
 		if self.position.x < 167:
@@ -84,7 +84,6 @@ func _process(delta):
 		#Has been placed
 		minion_placed = true
 		emit_signal("placed_monster", minion_name, cost)
-		print("Position x: " + str(self.position.x) + "tile: " + str(current_tile_index))
 		
 		
 	#DEAD
@@ -94,36 +93,47 @@ func _process(delta):
 			
 
 func despawn() -> void:
-		get_parent().remove_child(self)
+	get_parent().remove_child(self)
 
+#When Hero begin battle
 func _on_Area2D_body_entered(body):
-	print("ENTROU")
 	if body.get('hero') and minion_placed:
-		print("fight")
 		fighting = true
-		hero_attack = body.get('attack')
-		if hero_attack != null:
-			life -= hero_attack
-			healthy_bar.update_health(life, hero_attack)
-			print(life)
-		hero_atk_speed = body.get('atk_speed')
-		$Timer.wait_time = hero_atk_speed
-		$Timer.start()
+		#If already battling
+		if hero != null:
+			print("Append")
+			hero_q.append(body)
+		else:
+			hero = body
+			hero.minion_atk(hero.attack)
+			$Timer.wait_time = atk_speed
+			$Timer.start()
 	pass # Replace with function body.
 
+#Suffered Attack
+func hero_atk(damage):
+	print("Hero atk " + str(damage))
+	life -= damage
+	healthy_bar.update_health(life, damage)
 
+#Atk timer
 func _on_Timer_timeout():
-	print("atk")
 	if fighting:
-		if hero_attack != null:
-			life -= hero_attack
-			healthy_bar.update_health(life, hero_attack)
-			print(life)
-	pass # Replace with function body.
-
+		print(hero)
+		hero.minion_atk(attack)
 
 func _on_Area2D_body_exited(body):
-	fighting = false
-	$Timer.wait_time = 999999.9
-	print("Matou")
-	pass # Replace with function body.
+	if body == hero:
+		print("Matou")
+		#If more heros to kill
+		if hero_q.size() > 0:
+			print("pop")
+			hero = hero_q[0]
+			hero_q.remove(0)
+			hero.minion_atk(attack)
+			$Timer.wait_time = atk_speed
+			$Timer.start()
+		else:
+			$Timer.wait_time = 999999.9
+			fighting = false
+			hero = null

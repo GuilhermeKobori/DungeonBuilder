@@ -53,3 +53,5 @@ func _on_Area2D_body_entered(body):
 		yield(get_tree().create_timer(1.0), "timeout")
 		get_parent().queue_free()
 
+func monster_atk(id, damage):
+	print("ROSON ATTK ID " + str(id))
