@@ -10,13 +10,13 @@ var greenSlimeScn = load("res://Monsters/GreenSlime/GreenSlime.tscn")
 var minionScn = load("res://Monsters/Minion.tscn")
 
 var cash : = 0
-var cash_start = 7
+var cash_start = 10
 
 var robson_spawn_times = [5.0, 10.0]
 
 var dead_robsons = 0
-var number_of_robsons = 3
-onready var path : Path2D = $Path2D
+var number_of_robsons = 20
+onready var path : = [$Path2D1, $Path2D2]
 
 
 func _ready() -> void:
@@ -45,7 +45,7 @@ func _physics_process(delta: float) -> void:
 		spawn_robson()
 
 	# verificar condiçao de vitoria
-	if number_of_robsons == 0 and path.get_child_count() == 0:
+	if number_of_robsons == 0 and path[0].get_child_count() == 0 and path[1].get_child_count() == 0:
 		set_physics_process(false)
 		get_tree().change_scene("res://Screens/Win.tscn")
 
@@ -57,7 +57,8 @@ func spawn_robson() -> void:
 	var robson = robson_factory.instance()
 	#Spawn robson type
 	robson.spawn("Robson")
-	path.add_child(robson)
+	var choice = randi()%2
+	path[choice].add_child(robson)
 	robson.connect("reached_end", self, "_on_end_reached")
 
 	robson.connect("killed_hero", self, "on_hero_killed")
@@ -81,5 +82,3 @@ func update_cash(delta) -> void:
 
 func generate_spawn_time():
 	return rand_range(2.0, 10.0)
-	
-	
