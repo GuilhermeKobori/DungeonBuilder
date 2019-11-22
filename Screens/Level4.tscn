@@ -33,7 +33,6 @@ position = Vector2( -21.9594, -1.69428 )
 curve = SubResource( 1 )
 
 [node name="Path2D2" type="Path2D" parent="."]
-visible = false
 position = Vector2( -97.9674, -1.69428 )
 curve = SubResource( 2 )
 
@@ -47,4 +46,3 @@ position = Vector2( 349.859, 232.067 )
 stream = ExtResource( 4 )
 
 [node name="Interface" parent="." instance=ExtResource( 5 )]
-visible = false

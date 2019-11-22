@@ -9,6 +9,7 @@ var monsters = ["Zombie", "Skeleton", "War Zombie", "Darkeleton"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	monsters = get_parent().get_parent().valid_monsters
 	for monster in monsters:
 		var item = item_menu.instance()
 		var monster_path = path + monster + ".tres"

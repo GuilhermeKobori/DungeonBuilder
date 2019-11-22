@@ -1,9 +1,8 @@
 extends Control
 
 signal create_monster(name, cost)
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
+var valid_monsters = ["Zombie", "Skeleton"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
