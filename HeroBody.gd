@@ -8,7 +8,7 @@ var fighting = false
 var life = 30
 var attack = 4
 var atk_speed = 2
-var speed = 0.0
+var speed = 200.0
 
 var hero = true
 
@@ -22,6 +22,7 @@ func _ready() -> void:
 	set_process(true)
 	healthy_bar.update_max_health(life)
 	set_physics_process(true)
+
 
 func set_status(l, a, a_s, s):
 	print("Set : " + str(a))
