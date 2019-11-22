@@ -18,7 +18,7 @@ var dead_robsons = 0
 var number_of_robsons = 20
 onready var path : = [$Path2D1, $Path2D2]
 
-var valid_monsters = ["Zombie", "Skeleton", "War Zombie", "Darkeleton"]
+var valid_monsters = ["Zombie", "War Zombie", "Darkeleton"]
 
 func _ready() -> void:
 	set_physics_process(true)
