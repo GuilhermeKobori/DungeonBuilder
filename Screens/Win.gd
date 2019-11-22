@@ -17,7 +17,7 @@ func _ready():
 
 func on_mainmenu_button_pressed():
 	global.current_level = 0
-	get_tree().change_scene("res://TitleScreen.tscn")
+	get_tree().change_scene("res://Screens/TitleScreen.tscn")
 	
 func _on_NextLevel_pressed():
 	var lvl = path + "Level" + str(global.current_level + 1) + ".tscn"
