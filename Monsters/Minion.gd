@@ -19,6 +19,8 @@ var life = 100
 var attack = 5
 var cost = 0
 var atk_speed = 2
+var fighting_counter = 0
+var already_killed = false
 
 
 var fighting = false
@@ -45,16 +47,16 @@ func spawn(name):
 	life = minion_stats.max_health
 	attack = minion_stats.attack
 	atk_speed = minion_stats.atk_speed
-	
 
-	
+
+
 func _ready():
 	#$AnimationPlayer.play("Groovin'")
 	healthy_bar.update_max_health(life)
 	pass
 
 
-	
+
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		dragging = event.pressed
@@ -63,6 +65,7 @@ func _process(delta):
 	#Drag while button pressed
 	if Input.is_mouse_button_pressed(BUTTON_LEFT) and dragging:
         position = get_global_mouse_position()
+
 	#When released verify valid position and place it
 	if dragging and !Input.is_mouse_button_pressed(BUTTON_LEFT):
 		dragging = false
@@ -79,17 +82,38 @@ func _process(delta):
 		elif !valid_tileset.has(current_tile_index):
 			get_parent().remove_child(self)
 			return
-		
+
 		#Has been placed
 		minion_placed = true
 		emit_signal("placed_monster", minion_name, cost)
-		
-		
+
+
 	#DEAD
-	if life <= 0:
+	if life <= 0 and not already_killed:
+		already_killed = true
 		despawn()
 
+	#BATTLE SFX
+	if fighting:
+		if fighting_counter == 25:
+			var node_name = randomize_battle_sound_effect()
+			get_node(node_name).play()
+			fighting_counter = 0
+		else:
+			fighting_counter += 1
+
+func randomize_battle_sound_effect():
+	var num = randi() % 4
+	return ("BattleSound" + str(num))
+
 func despawn() -> void:
+	get_node("MinionKilledSound").play()
+
+	var monster_t = get_node("MonsterTimer")
+	monster_t.start()
+	yield(monster_t, "timeout")
+	monster_t.queue_free()
+
 	get_parent().remove_child(self)
 
 #When Hero begin battle
