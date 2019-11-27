@@ -10,7 +10,7 @@ var greenSlimeScn = load("res://Monsters/GreenSlime/GreenSlime.tscn")
 var minionScn = load("res://Monsters/Minion.tscn")
 
 var cash : = 0
-var cash_start = 8
+var cash_start = 15
 
 var robson_spawn_times = [5.0, 10.0]
 
@@ -85,4 +85,4 @@ func update_cash(delta) -> void:
 
 
 func generate_spawn_time():
-	return rand_range(2.0, 10.0)
+	return rand_range(2.0, 15.0)

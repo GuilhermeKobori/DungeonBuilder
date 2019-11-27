@@ -128,7 +128,7 @@ func _on_Area2D_body_entered(body):
 		else:
 			hero = hero_q[0]
 			hero_q.remove(0)
-			hero.minion_atk(hero.attack)
+			hero.minion_atk(attack)
 			$Timer.wait_time = atk_speed
 			$Timer.start()
 

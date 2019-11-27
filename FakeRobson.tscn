@@ -5,10 +5,10 @@
 [ext_resource path="res://Interface/bar/life_bar.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 20, 24.8232 )
+extents = Vector2( 20, 20 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 20, 24.426 )
+extents = Vector2( 20, 20 )
 
 [node name="PathFollow2D" type="PathFollow2D"]
 rotate = false
