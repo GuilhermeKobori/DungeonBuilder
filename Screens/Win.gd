@@ -16,10 +16,28 @@ func _ready():
 		global.last_unlocked_level += 1
 
 func on_mainmenu_button_pressed():
+	get_node("ButtonSound").play()
+
+	#lines below pause the execution to allow clicking-sound to finisih before switching to next scene
+
+	var t = get_node("Timer")
+	t.start()
+	yield(t, "timeout")
+	t.queue_free()
+
 	global.current_level = 0
 	get_tree().change_scene("res://Screens/TitleScreen.tscn")
 
 func _on_NextLevel_pressed():
+	get_node("ButtonSound").play()
+
+	#lines below pause the execution to allow clicking-sound to finisih before switching to next scene
+
+	var t = get_node("Timer")
+	t.start()
+	yield(t, "timeout")
+	t.queue_free()
+
 	var lvl = path + "Level" + str(global.current_level + 1) + ".tscn"
 	get_tree().change_scene(lvl)
 
