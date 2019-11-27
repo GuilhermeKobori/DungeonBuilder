@@ -1,15 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://FakeRobson.gd" type="Script" id=1]
 [ext_resource path="res://HeroBody.gd" type="Script" id=2]
 [ext_resource path="res://Interface/bar/life_bar.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/Robi.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 20, 20 )
+extents = Vector2( 20, 24.8232 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 20, 20 )
+extents = Vector2( 20, 24.426 )
 
 [node name="PathFollow2D" type="PathFollow2D"]
 rotate = false
@@ -35,11 +34,6 @@ margin_right = 410.0
 rect_scale = Vector2( 0.1, 0.1 )
 
 [node name="Timer" type="Timer" parent="HeroBody"]
-
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -18.4352 )
-scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 4 )
 [connection signal="body_entered" from="HeroBody/Area2D" to="HeroBody" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="HeroBody/Area2D" to="HeroBody" method="_on_Area2D_body_exited"]
 [connection signal="timeout" from="HeroBody/Timer" to="HeroBody" method="_on_Timer_timeout"]

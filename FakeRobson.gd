@@ -21,11 +21,9 @@ var atk_speed = 2
 #TODO UPDATE SPRITE AND STATUS
 func spawn(name):
 	#Set Texture and Scale
-	$Sprite.texture = load(path + name + ".png")
-	var y = $Sprite.texture.get_height()
-	$Sprite.scale.x = 40.0/y
-	$Sprite.scale.y = 40.0/y
-
+	var iron_knight = preload("res://Heros/Knights/IronKnight/IronKnight.tscn").instance()
+	add_child(iron_knight)
+	
 	#Set Status
 	hero_stats = load(path + name + ".tres")
 	drop = hero_stats.drop

@@ -17,6 +17,7 @@ var monster
 var monster_q : Array = [] #Enemies queue
 
 var sent = 1
+onready var iron_knight = get_node("../IronKnight")
 
 func _ready() -> void:
 	set_process(true)
@@ -30,6 +31,10 @@ func set_status(l, a, a_s, s):
 	speed = s
 	
 func _process(delta: float) -> void:
+	if fighting:
+		iron_knight.animation_player.play("Attackin'")
+	else:
+		iron_knight.animation_player.play("Walkin'")
 	if life <= 0:
 			despawn()
 
