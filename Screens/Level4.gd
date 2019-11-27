@@ -68,6 +68,7 @@ func on_monster_placed(name, cash):
 	update_cash(-1 * cash)
 
 func on_hero_killed(hero):
+	get_node("MoneySound").play()
 	dead_robsons += 1
 	update_cash(hero.drop)
 	var drop = drop_factory.instance()
