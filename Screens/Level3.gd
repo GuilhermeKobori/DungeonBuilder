@@ -23,7 +23,7 @@ var valid_monsters = ["Zombie", "Skeleton", "War Zombie", "Darkeleton"]
 func _ready() -> void:
 	set_physics_process(true)
 	$Interface.connect("create_monster", self, "bought_monster")
-	#get_node("AudioStreamPlayer").play()
+	get_node("AudioStreamPlayer2D").play()
 
 	connect("cash_updated", $Interface/CoinsCounter, "on_cash_updated")
 	connect("cash_updated", $Interface/Store, "on_cash_updated")
@@ -66,9 +66,11 @@ func spawn_robson() -> void:
 	robson.connect("killed_hero", self, "on_hero_killed")
 
 func on_monster_placed(name, cash):
+	get_node("MonsterPlacedSound").play()
 	update_cash(-1 * cash)
 
 func on_hero_killed(hero):
+	get_node("MoneySound").play()
 	dead_robsons += 1
 	update_cash(hero.drop)
 	var drop = drop_factory.instance()

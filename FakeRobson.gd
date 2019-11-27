@@ -23,7 +23,7 @@ func spawn(name):
 	#Set Texture and Scale
 	var iron_knight = preload("res://Heros/Knights/IronKnight/IronKnight.tscn").instance()
 	add_child(iron_knight)
-	
+
 	#Set Status
 	hero_stats = load(path + name + ".tres")
 	drop = hero_stats.drop

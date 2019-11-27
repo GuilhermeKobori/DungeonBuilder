@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Screens/GameOver.gd" type="Script" id=1]
 [ext_resource path="res://Assets/overlay.png" type="Texture" id=2]
 [ext_resource path="res://Interface/theme/menu_title_font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Interface/StyledButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Sons/win music 2.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Sons/Minimare_Hiss.wav" type="AudioStream" id=6]
 
 [node name="GameOver" type="Control"]
 anchor_right = 1.0
@@ -55,3 +56,8 @@ text = "Main Menu"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="Timer" type="Timer" parent="."]
