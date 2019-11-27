@@ -66,6 +66,7 @@ func spawn_robson() -> void:
 	robson.connect("killed_hero", self, "on_hero_killed")
 
 func on_monster_placed(name, cash):
+	get_node("MonsterPlacedSound").play()
 	update_cash(-1 * cash)
 
 func on_hero_killed(hero):

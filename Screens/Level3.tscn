@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Screens/Level3.gd" type="Script" id=1]
 [ext_resource path="res://Tiles.tres" type="TileSet" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/Sons/Track 4 - Trypophobie.wav" type="AudioStream" id=4]
 [ext_resource path="res://Interface/Interface.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Sons/hjm-coindrop_v1.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Sons/hjm-coin_clicker_1.wav" type="AudioStream" id=7]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -50,3 +51,6 @@ stream = ExtResource( 4 )
 
 [node name="MoneySound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+
+[node name="MonsterPlacedSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
