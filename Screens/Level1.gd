@@ -23,7 +23,7 @@ var valid_monsters = ["Zombie", "Skeleton"]
 func _ready() -> void:
 	set_physics_process(true)
 	$Interface.connect("create_monster", self, "bought_monster")
-	#get_node("AudioStreamPlayer").play()
+	get_node("AudioStreamPlayer2D").play()
 
 	connect("cash_updated", $Interface/CoinsCounter, "on_cash_updated")
 	connect("cash_updated", $Interface/Store, "on_cash_updated")
@@ -82,5 +82,4 @@ func update_cash(delta) -> void:
 
 func generate_spawn_time():
 	return rand_range(2.0, 10.0)
-	
-	
+

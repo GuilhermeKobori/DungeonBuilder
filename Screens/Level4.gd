@@ -23,7 +23,7 @@ var valid_monsters = ["Zombie", "War Zombie", "Darkeleton"]
 func _ready() -> void:
 	set_physics_process(true)
 	$Interface.connect("create_monster", self, "bought_monster")
-	#get_node("AudioStreamPlayer").play()
+	get_node("AudioStreamPlayer2D").play()
 
 	connect("cash_updated", $Interface/CoinsCounter, "on_cash_updated")
 	connect("cash_updated", $Interface/Store, "on_cash_updated")
