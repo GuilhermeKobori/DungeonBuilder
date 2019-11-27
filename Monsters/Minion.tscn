@@ -59,8 +59,10 @@ stream = ExtResource( 7 )
 
 [node name="MinionKilledSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+volume_db = -8.078
 
 [node name="MonsterTimer" type="Timer" parent="."]
+wait_time = 0.2
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
