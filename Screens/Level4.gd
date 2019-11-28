@@ -10,7 +10,7 @@ var greenSlimeScn = load("res://Monsters/GreenSlime/GreenSlime.tscn")
 var minionScn = load("res://Monsters/Minion.tscn")
 
 var cash : = 0
-var cash_start = 13
+var cash_start = 20
 
 var robson_spawn_times = [5.0, 10.0]
 
